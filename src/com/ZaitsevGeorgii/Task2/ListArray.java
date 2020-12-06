@@ -17,7 +17,7 @@ public class ListArray implements List {
     @Override
     public Object remove(int index) {
         if (index < 0 || index >= size){
-            throw  new ArrayIndexOutOfBoundsException("");
+            throw  new ArrayIndexOutOfBoundsException("Индекс находится вне допустимого диапазона");
         }
         else{
             Object removeValue = array[index];
@@ -33,7 +33,7 @@ public class ListArray implements List {
     @Override
     public void add(int index, Object element) {
         if (index < 0 || index > size ){
-            throw new ArrayIndexOutOfBoundsException("");
+            throw new ArrayIndexOutOfBoundsException("Индекс находится вне допустимого диапазона");
         }
         else  if(size == 0){
             size++;
@@ -42,7 +42,7 @@ public class ListArray implements List {
         }
         else{
             array = Arrays.copyOf(array, array.length + 1);
-            for (int i = size - 2; i>index; i++){
+            for (int i = size - 2; i>index; i--){
                 array[i + 1] = array[i];
             }
             array[index] = element;
@@ -73,7 +73,7 @@ public class ListArray implements List {
     @Override
     public Object get(int index) {
         if (index < 0 || index >= size){
-            throw  new ArrayIndexOutOfBoundsException();
+            throw  new ArrayIndexOutOfBoundsException("Индекс находится вне допустимого диапазона");
         }
         else {
             return array[index];
