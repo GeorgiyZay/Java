@@ -22,9 +22,10 @@ public class HashTableOwn<K, V> {
         return size;
     }
 
+
     public HashTableOwn(int size) {
         table = new ArrayList<NodeOfHash<K, V>>();
-        size = 0;
+        this.size = 0;
         for (int i = 0; i < size; i++) {
             table.add(null);
         }
@@ -58,7 +59,7 @@ public class HashTableOwn<K, V> {
             }
             node = node.next;
         }
-        return true;
+        return false;
     }
 
     public V remove(K key) {
@@ -103,3 +104,4 @@ public class HashTableOwn<K, V> {
         return null;
     }
 }
+

@@ -8,6 +8,10 @@ public class HashMapOwn implements java.util.Map {
 
     private HashTableOwn<Object, Object> table;
 
+    public HashMapOwn(int size){
+        table = new HashTableOwn<Object, Object>(size);
+    }
+
     @Override
     public Object get(Object key) {
         return table.get(key);
@@ -25,7 +29,7 @@ public class HashMapOwn implements java.util.Map {
 
     @Override
     public boolean containsKey(Object key) {
-        throw new UnsupportedOperationException("Не реализован");
+        return table.contains(key);
     }
 
     @Override
