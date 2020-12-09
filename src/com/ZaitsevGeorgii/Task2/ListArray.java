@@ -120,7 +120,7 @@ public class ListArray implements List {
 
     @Override
     public void clear() {
-
+        throw new UnsupportedOperationException("Не реализован");
     }
 
 
@@ -132,47 +132,47 @@ public class ListArray implements List {
 
     @Override
     public int indexOf(Object o) {
-        return 0;
+        throw new UnsupportedOperationException("Не реализован");
     }
 
     @Override
     public int lastIndexOf(Object o) {
-        return 0;
+        throw new UnsupportedOperationException("Не реализован");
     }
 
     @Override
     public ListIterator listIterator() {
-        return null;
+        throw new UnsupportedOperationException("Не реализован");
     }
 
     @Override
     public ListIterator listIterator(int index) {
-        return null;
+        throw new UnsupportedOperationException("Не реализован");
     }
 
     @Override
     public List subList(int fromIndex, int toIndex) {
-        return null;
+        throw new UnsupportedOperationException("Не реализован");
     }
 
     @Override
     public boolean retainAll(Collection c) {
-        return false;
+        throw new UnsupportedOperationException("Не реализован");
     }
 
     @Override
     public boolean removeAll(Collection c) {
-        return false;
+        throw new UnsupportedOperationException("Не реализован");
     }
 
     @Override
     public boolean containsAll(Collection c) {
-        return false;
+        throw new UnsupportedOperationException("Не реализован");
     }
 
     @Override
     public Object[] toArray(Object[] a) {
-        return new Object[0];
+        throw new UnsupportedOperationException("Не реализован");
     }
 
 }

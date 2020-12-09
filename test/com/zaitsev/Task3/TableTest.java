@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class TableTest {
 
     @Test
-    void testContainsTrue(){
+    void testContainsTrue() {
         HashTableOwn<Integer, Integer> table = new HashTableOwn<Integer, Integer>(11);
         table.add(3, 15);
         table.add(7, 12);
@@ -15,7 +15,7 @@ public class TableTest {
     }
 
     @Test
-    void testContainsFalse(){
+    void testContainsFalse() {
         HashTableOwn<Integer, Integer> table = new HashTableOwn<Integer, Integer>(11);
         table.add(3, 15);
         table.add(7, 12);
@@ -23,7 +23,7 @@ public class TableTest {
     }
 
     @Test
-    void testAddd(){
+    void testAddd() {
         HashTableOwn<Integer, Integer> table = new HashTableOwn<Integer, Integer>(11);
         table.add(3, 15);
         table.add(3, 20);
@@ -32,23 +32,23 @@ public class TableTest {
     }
 
     @Test
-    void testNegativeKeyRemove(){
+    void testNegativeKeyRemove() {
         HashTableOwn<Integer, Integer> table = new HashTableOwn<Integer, Integer>(11);
         table.add(3, 15);
         table.add(7, 12);
-        Assertions.assertThrows(NullPointerException.class , () -> table.remove(-5));
+        Assertions.assertThrows(NullPointerException.class, () -> table.remove(-5));
     }
 
     @Test
-    void testNotExistKeyRemove(){
+    void testNotExistKeyRemove() {
         HashTableOwn<Integer, Integer> table = new HashTableOwn<Integer, Integer>(11);
         table.add(3, 15);
         table.add(7, 12);
-        Assertions.assertThrows(NullPointerException.class , () -> table.remove(5));
+        Assertions.assertThrows(NullPointerException.class, () -> table.remove(5));
     }
 
     @Test
-    void testRemove(){
+    void testRemove() {
         HashTableOwn<Integer, Integer> table = new HashTableOwn<Integer, Integer>(11);
         table.add(3, 15);
         table.add(3, 20);

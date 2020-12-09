@@ -8,7 +8,7 @@ public class HashMapOwn implements java.util.Map {
 
     private HashTableOwn<Object, Object> table;
 
-    public HashMapOwn(int size){
+    public HashMapOwn(int size) {
         table = new HashTableOwn<Object, Object>(size);
     }
 
