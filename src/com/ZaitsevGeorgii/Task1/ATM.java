@@ -8,20 +8,18 @@ public class ATM {
     public static Long inputSumForCombinations(InputStream stream) {
         Scanner scanner = new Scanner(stream);
         Long sum;
-        while (true) {
-            System.out.println("Введите сумму");
-            try {
-                sum = scanner.nextLong();
-                if (sum <= 0) {
-                    throw new RuntimeException("Negative sum");
-                }
-                break;
-            } catch (InputMismatchException e) {
-                System.out.println("Неверный формат суммы");
-                scanner.nextLine();
-            } catch (RuntimeException e) {
-                System.out.println("Сумма должна быть положительная");
+        System.out.println("Введите сумму");
+        try {
+            sum = scanner.nextLong();
+            if (sum <= 0) {
+                throw new RuntimeException("Negative sum");
             }
+        } catch (InputMismatchException e) {
+            System.out.println("Неверный формат суммы");
+            throw e;
+        } catch (RuntimeException e) {
+            System.out.println("Сумма должна быть положительная");
+            throw e;
         }
         return sum;
     }
@@ -77,10 +75,14 @@ public class ATM {
     public static void main(String[] args) {
         Long sum = inputSumForCombinations(System.in);
         Long[] banknotes = inputBanknotesForCombinations(System.in);
-        System.out.println("Для суммы: " + sum.toString());
-        System.out.println("И следующего набора банкнот: " + banknotes.toString());
-        System.out.println("Существуют следующие варианты размена");
-        long result = calculateCombination(sum, banknotes, banknotes.length - 1, new ArrayList<>());
-        System.out.println("Игого их: " + result);
+        if (banknotes.length == 0){
+            System.out.println("Набор банкнот пуст");
+        }else {
+            System.out.println("Для суммы: " + sum.toString());
+            System.out.println("И следующего набора банкнот: " + banknotes.toString());
+            System.out.println("Существуют следующие варианты размена");
+            long result = calculateCombination(sum, banknotes, banknotes.length - 1, new ArrayList<>());
+            System.out.println("Игого их: " + result);
+        }
     }
 }
