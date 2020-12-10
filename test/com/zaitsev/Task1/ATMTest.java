@@ -9,11 +9,12 @@ import org.junit.jupiter.params.provider.ValueSource;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 
 public class ATMTest {
 
     @ParameterizedTest
-    @ValueSource(strings = {"676", "sadasd", "121sda", "-211", "23342.1213", "102"})
+    @ValueSource(strings = {"676"})
     void testSumInputCorrect(String str){
         InputStream stream = new ByteArrayInputStream(str.getBytes());
         Long result = ATM.inputSumForCombinations(stream);
@@ -21,11 +22,17 @@ public class ATMTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"-2", "676", "sadasd", "121sda", "-211", "23342.1213", "102"})
+    @ValueSource(strings = {"-2"})
     void testSumInputWithNegative(String str){
         InputStream stream = new ByteArrayInputStream(str.getBytes());
-        Long result = ATM.inputSumForCombinations(stream);
-        Assertions.assertEquals(676, result);
+        Assertions.assertThrows(RuntimeException.class, () -> ATM.inputSumForCombinations(stream));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"sdfs"})
+    void testSumInputWithNotLong(String str){
+        InputStream stream = new ByteArrayInputStream(str.getBytes());
+        Assertions.assertThrows(InputMismatchException.class, () -> ATM.inputSumForCombinations(stream));
     }
 
     @ParameterizedTest
