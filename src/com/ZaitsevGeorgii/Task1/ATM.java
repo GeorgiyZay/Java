@@ -34,8 +34,9 @@ public class ATM {
             try {
                 Long num = Long.parseLong(banknote);
                 if (num <= 0) {
-                    System.out.println("Банкнота '" + num.toString() + "' имеет отрицательное значение");
-                } else {
+                    System.out.println("Банкнота '" + num.toString() + "' имеет не положительное значение");
+                }
+                else {
                     set.add(num);
                 }
             } catch (NumberFormatException e) {

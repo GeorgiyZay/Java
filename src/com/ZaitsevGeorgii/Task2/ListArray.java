@@ -7,7 +7,19 @@ public class ListArray implements List {
 
     private Object[] array;
     private int size;
+    private int maxSize;
 
+    public ListArray() {
+        this.maxSize = 8;
+        size = 0;
+        array = new Object[this.maxSize];
+    }
+
+    public ListArray(int size) {
+        this.maxSize = size;
+        this.size = 0;
+        array = new Object[this.maxSize];
+    }
 
     @Override
     public int size() {
@@ -16,15 +28,13 @@ public class ListArray implements List {
 
     @Override
     public Object remove(int index) {
-        if (index < 0 || index >= size){
-            throw  new ArrayIndexOutOfBoundsException("Индекс находится вне допустимого диапазона");
-        }
-        else{
+        if (index < 0 || index >= size) {
+            throw new ArrayIndexOutOfBoundsException("Индекс находится вне допустимого диапазона");
+        } else {
             Object removeValue = array[index];
-            for (int i = index; i < size - 1; i++){
+            for (int i = index; i < size - 1; i++) {
                 array[i] = array[i + 1];
             }
-            array = Arrays.copyOf(array, array.length - 1);
             size--;
             return removeValue;
         }
@@ -32,17 +42,17 @@ public class ListArray implements List {
 
     @Override
     public void add(int index, Object element) {
-        if (index < 0 || index > size ){
+        if (element == null){
+            throw new NullPointerException();
+        }
+        if (index < 0 || index > size) {
             throw new ArrayIndexOutOfBoundsException("Индекс находится вне допустимого диапазона");
-        }
-        else  if(size == 0){
-            size++;
-            array = new Object[1];
-            array[0] = element;
-        }
-        else{
-            array = Arrays.copyOf(array, array.length + 1);
-            for (int i = size - 2; i>index; i--){
+        } else {
+            if (size == maxSize) {
+                maxSize *= 2;
+                array = Arrays.copyOf(array, maxSize);
+            }
+            for (int i = size - 2; i > index; i--) {
                 array[i + 1] = array[i];
             }
             array[index] = element;
@@ -57,36 +67,34 @@ public class ListArray implements List {
 
     @Override
     public boolean add(Object o) {
-        if (this.size == 0){
-            this.size = 1;
-            array = new Object[1];
-            array[0] = o;
+        if (o == null){
+            throw new NullPointerException();
         }
-        else{
-            array = Arrays.copyOf(array, array.length + 1);
-            array[size] = o;
-            size++;
+        if (size == maxSize) {
+            maxSize *= 2;
+            array = Arrays.copyOf(array, maxSize);
         }
+        array[size] = o;
+        size++;
         return true;
     }
 
     @Override
     public Object get(int index) {
-        if (index < 0 || index >= size){
-            throw  new ArrayIndexOutOfBoundsException("Индекс находится вне допустимого диапазона");
-        }
-        else {
+        if (index < 0 || index > size) {
+            throw new ArrayIndexOutOfBoundsException("Индекс находится вне допустимого диапазона");
+        } else {
             return array[index];
         }
     }
 
     @Override
     public boolean contains(Object o) {
-        if (size == 0){
+        if (size == 0) {
             return false;
         }
-        for (int i = 0; i < size; i++){
-            if (array[i].equals(o)){
+        for (int i = 0; i < size; i++) {
+            if (array[i].equals(o)) {
                 return true;
             }
         }
@@ -95,27 +103,27 @@ public class ListArray implements List {
 
     @Override
     public Iterator iterator() {
-        return null;
+        throw new UnsupportedOperationException("Не реализован");
     }
 
     @Override
     public Object[] toArray() {
-        return new Object[0];
+        throw new UnsupportedOperationException("Не реализован");
     }
 
     @Override
     public boolean remove(Object o) {
-        return false;
+        throw new UnsupportedOperationException("Не реализован");
     }
 
     @Override
     public boolean addAll(Collection c) {
-        return false;
+        throw new UnsupportedOperationException("Не реализован");
     }
 
     @Override
     public boolean addAll(int index, Collection c) {
-        return false;
+        throw new UnsupportedOperationException("Не реализован");
     }
 
     @Override
@@ -126,7 +134,7 @@ public class ListArray implements List {
 
     @Override
     public Object set(int index, Object element) {
-        return null;
+        throw new UnsupportedOperationException("Не реализован");
     }
 
 

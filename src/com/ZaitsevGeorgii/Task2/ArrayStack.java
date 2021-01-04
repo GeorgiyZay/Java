@@ -3,43 +3,41 @@ package com.ZaitsevGeorgii.Task2;
 public class ArrayStack extends java.util.Stack {
     private ListArray array;
 
-    public ArrayStack(){
+    public ArrayStack() {
         array = new ListArray();
     }
 
     @Override
-    public boolean empty(){
+    public boolean empty() {
         return array.isEmpty();
     }
 
     @Override
-    public Object peek(){
-        if (array.isEmpty()){
+    public Object peek() {
+        if (array.isEmpty()) {
             return null;
-        }
-        else{
+        } else {
             return array.get(array.size() - 1);
         }
     }
 
     @Override
-    public Object pop(){
+    public Object pop() {
         if (array.isEmpty()) {
             return null;
-        }
-        else{
+        } else {
             return array.remove(array.size() - 1);
         }
     }
 
     @Override
-    public Object push(Object element){
+    public Object push(Object element) {
         array.add(element);
         return element;
     }
 
     @Override
-    public int size(){
+    public int size() {
         return array.size();
     }
 }

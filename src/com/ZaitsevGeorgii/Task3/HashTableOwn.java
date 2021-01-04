@@ -84,6 +84,9 @@ public class HashTableOwn<K, V> {
     }
 
     public V add(K key, V value){
+        if ( (key == null) || (value == null)){
+            throw new NullPointerException();
+        }
         int ind = getIndex(key);
         NodeOfHash<K, V> node = table.get(ind);
 
