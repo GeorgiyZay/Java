@@ -42,7 +42,7 @@ public class ListArray implements List {
 
     @Override
     public void add(int index, Object element) {
-        if (element == null){
+        if (element == null) {
             throw new NullPointerException();
         }
         if (index < 0 || index > size) {
@@ -67,7 +67,7 @@ public class ListArray implements List {
 
     @Override
     public boolean add(Object o) {
-        if (o == null){
+        if (o == null) {
             throw new NullPointerException();
         }
         if (size == maxSize) {

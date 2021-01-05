@@ -1,0 +1,11 @@
+Папка emptyDir
+Папка emptyDir пустая
+Папка image
+LogIn.png
+Project.png
+Registr.png
+View.png
+Диаграмма.jpg
+Папка someFile
+interestingfact
+something

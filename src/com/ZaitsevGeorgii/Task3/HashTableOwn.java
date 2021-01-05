@@ -18,7 +18,7 @@ public class HashTableOwn<K, V> {
     private ArrayList<NodeOfHash<K, V>> table;
     private int size;
 
-    public int getSize(){
+    public int getSize() {
         return size;
     }
 
@@ -83,8 +83,8 @@ public class HashTableOwn<K, V> {
         return node.value;
     }
 
-    public V add(K key, V value){
-        if ( (key == null) || (value == null)){
+    public V add(K key, V value) {
+        if ((key == null) || (value == null)) {
             throw new NullPointerException();
         }
         int ind = getIndex(key);
@@ -94,12 +94,12 @@ public class HashTableOwn<K, V> {
             if (node.key.equals(key)) {
                 V prevValue = node.value;
                 node.value = value;
-                return  prevValue;
+                return prevValue;
             }
             node = node.next;
         }
         node = new NodeOfHash<K, V>(key, value);
-        if (table.get(ind) != null){
+        if (table.get(ind) != null) {
             node.next = table.get(ind);
         }
         size++;
