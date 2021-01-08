@@ -1,6 +1,6 @@
 package com.zaitsev.task4;
 
-import com.ZaitsevGeorgii.Task4.TraversingSubTree;
+import com.zaitsevGeorgii.task4.TraversingSubTree;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

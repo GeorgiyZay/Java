@@ -1,4 +1,4 @@
-package com.ZaitsevGeorgii.Task1;
+package com.zaitsevGeorgii.task1;
 
 import java.io.InputStream;
 import java.util.*;

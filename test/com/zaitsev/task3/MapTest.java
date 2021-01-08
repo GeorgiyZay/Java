@@ -1,8 +1,7 @@
-package com.zaitsev.Task3;
+package com.zaitsev.task3;
 
-import com.ZaitsevGeorgii.Task3.HashMapOwn;
+import com.zaitsevGeorgii.task3.HashMapOwn;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class MapTest {

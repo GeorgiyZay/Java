@@ -1,6 +1,6 @@
-package com.zaitsev.Task2;
+package com.zaitsev.task2;
 
-import com.ZaitsevGeorgii.Task2.ArrayStack;
+import com.zaitsevGeorgii.task2.ArrayStack;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

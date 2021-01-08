@@ -1,4 +1,4 @@
-package com.ZaitsevGeorgii.Task3;
+package com.zaitsevGeorgii.task3;
 
 import java.util.ArrayList;
 
@@ -36,7 +36,9 @@ public class HashTableOwn<K, V> {
     }
 
     public V get(K key) {
-
+        if (key == null){
+            throw new NullPointerException();
+        }
         if (contains(key)) {
             NodeOfHash<K, V> node = table.get(getIndex(key));
 
@@ -51,6 +53,9 @@ public class HashTableOwn<K, V> {
     }
 
     public boolean contains(K key) {
+        if (key == null){
+            throw new NullPointerException();
+        }
         NodeOfHash<K, V> node = table.get(getIndex(key));
 
         while (node != null) {
@@ -63,6 +68,9 @@ public class HashTableOwn<K, V> {
     }
 
     public V remove(K key) {
+        if (key == null){
+            throw new NullPointerException();
+        }
         NodeOfHash<K, V> node = table.get(getIndex(key));
         NodeOfHash<K, V> prevNode = null;
         while (node != null) {

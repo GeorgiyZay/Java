@@ -1,6 +1,5 @@
-package com.ZaitsevGeorgii.Task2;
+package com.zaitsevGeorgii.task2;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class ListArray implements List {

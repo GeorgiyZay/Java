@@ -1,4 +1,4 @@
-package com.ZaitsevGeorgii.Task2;
+package com.zaitsevGeorgii.task2;
 
 public class ArrayStack extends java.util.Stack {
     private ListArray array;

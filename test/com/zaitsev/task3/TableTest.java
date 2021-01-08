@@ -1,6 +1,6 @@
-package com.zaitsev.Task3;
+package com.zaitsev.task3;
 
-import com.ZaitsevGeorgii.Task3.HashTableOwn;
+import com.zaitsevGeorgii.task3.HashTableOwn;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

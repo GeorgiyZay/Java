@@ -1,9 +1,8 @@
-package com.ZaitsevGeorgii.Task4;
+package com.zaitsevGeorgii.task4;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.NoSuchFileException;
 
 public class TraversingSubTree {
     private File startDirectory;

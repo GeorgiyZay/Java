@@ -1,4 +1,4 @@
-package com.ZaitsevGeorgii.Task3;
+package com.zaitsevGeorgii.task3;
 
 import java.util.Collection;
 import java.util.Map;

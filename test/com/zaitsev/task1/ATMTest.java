@@ -1,6 +1,6 @@
-package com.zaitsev.Task1;
+package com.zaitsev.task1;
 
-import com.ZaitsevGeorgii.Task1.ATM;
+import com.zaitsevGeorgii.task1.ATM;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
