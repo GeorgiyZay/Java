@@ -13,12 +13,12 @@ public class EquationClass {
         Pool<FileWriter> fPool = new Pool<>(new FileFactory("fortask5"), poolSize, waintTime);
 
         for (int i = 0; i < 10000; i++) {
-            a[i] = (Math.random() * (10000 + 1)) - 1000;
-            a[i] = (Math.random() * (10000 + 1)) - 1000;
-            a[i] = (Math.random() * (10000 + 1)) - 1000;
+            a[i] = (Math.random() * (10000 + 1)) - 5000;
+            b[i] = (Math.random() * (10000 + 1)) - 5000;
+            c[i] = (Math.random() * (10000 + 1)) - 5000;
         }
         for (int i = 0; i < poolSize; i++) {
-            Solver solver = new Solver(a, b, c, i * 10000 / poolSize, (i + 1) / 10000 / poolSize, tPool, fPool);
+            Solver solver = new Solver(a, b, c, i * 10000 / poolSize, (i + 1) * 10000 / poolSize, tPool, fPool);
             solver.execute(solver);
         }
         tPool.shutDown();

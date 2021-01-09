@@ -25,12 +25,12 @@ public class Solver implements Runnable {
 
     @Override
     public void run() {
-        try(FileWriter writer = fPool.getResourse()){
-            for (int i = start; i < end; i++){
-                writer.write(getRoot(a[i], b[i], c[i]));
+        try (FileWriter writer = fPool.getResourse()) {
+            for (int i = start; i < end; i++) {
+                writer.write(i + " " + getRoot(a[i], b[i], c[i]));
             }
             fPool.realize(writer);
-        } catch (IOException e){
+        } catch (IOException e) {
             System.out.println(e.getMessage());
         }
     }
@@ -45,7 +45,7 @@ public class Solver implements Runnable {
         tPool.realize(workThread);
     }
 
-    private String getRoot(double a, double b, double c) {
+    public String getRoot(double a, double b, double c) {
         double d = b * b - 4 * a * c;
         if (d >= 0) {
             if (a == 0) {
@@ -53,7 +53,7 @@ public class Solver implements Runnable {
                     if (c == 0) {
                         return "R\n";
                     } else {
-                        return "Уравнение не имеет решение";
+                        return "Уравнение не имеет решение\n";
                     }
                 } else {
                     return (new Double(-c / b)).toString() + '\n';

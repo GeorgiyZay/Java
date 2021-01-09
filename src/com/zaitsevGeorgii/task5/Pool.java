@@ -1,13 +1,12 @@
 package com.zaitsevGeorgii.task5;
 
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class Pool<V> {
     private LinkedBlockingQueue<ResoursePoolItem<V, Long>> poolReourses;
-    private LinkedBlockingQueue<ResoursePoolItem<V, Long>> usingResourses;
+    private LinkedBlockingQueue<V> usingResourses;
     private ObjectFactory<V> factory;
     private ExecutorService executorService;
     private long waintTime;
@@ -23,6 +22,10 @@ public class Pool<V> {
         isShutDown = false;
         this.size = size;
         initializationPool();
+    }
+
+    public int size(){
+        return poolReourses.size();
     }
 
     public void initializationPool() {
@@ -53,14 +56,15 @@ public class Pool<V> {
             try {
                 ResoursePoolItem<V, Long> resourse = poolReourses.take();
                 if (resourse.isAlive(waintTime)) {
-                    usingResourses.offer(resourse);
+                    usingResourses.add(resourse.getValue());
                     return resourse.getValue();
                 } else {
+                    poolReourses.remove(resourse);
                     ResoursePoolItem<V, Long> newResourse = createResourse();
                     if (newResourse == null) {
                         return null;
                     }
-                    usingResourses.offer(newResourse);
+                    usingResourses.add(newResourse.getValue());
                     return newResourse.getValue();
                 }
             } catch (InterruptedException e) {
